@@ -1,22 +1,12 @@
-public abstract class Toy {
-    private int toyType;
+public class Toy {
     private int toyID;
     private String toyName;
-    private int toyLootChance;
+    private double toyLootChance;
 
-    public Toy(int toyType, int toyID, String toyName, int toyLootChance) {
-        this.toyType = toyType;
+    public Toy(int toyID, String toyName, double toyLootChance) {
         this.toyID = toyID;
         this.toyName = toyName;
         this.toyLootChance = toyLootChance;
-    }
-
-    public int getToyType() {
-        return toyType;
-    }
-
-    public void setToyType(int toyType) {
-        this.toyType = toyType;
     }
 
     public int getToyID() {
@@ -35,11 +25,11 @@ public abstract class Toy {
         this.toyName = toyName;
     }
 
-    public int getToyLootChance() {
+    public double getToyLootChance() {
         return toyLootChance;
     }
 
-    public void setToyLootChance(int toyLootChance) {
+    public void setToyLootChance(double toyLootChance) {
         this.toyLootChance = toyLootChance;
     }
 
