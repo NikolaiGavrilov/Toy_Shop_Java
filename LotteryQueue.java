@@ -5,12 +5,17 @@ import java.util.Random;
 
 public class LotteryQueue {
     Random random;
-    static int num = 0;
-    PriorityQueue <LotteryParticipant> lotteryParticipantQueue; 
-
-    public LotteryQueue(PriorityQueue<LotteryParticipant> lotteryParticipantQueue) {
-        this.lotteryParticipantQueue = lotteryParticipantQueue;
-    }
+    static int num = 11000;
+    static int numParticipant = 10100;
+    
+    public static PriorityQueue <LotteryParticipant> compileLotteryParticipantQueue(){
+        PriorityQueue <LotteryParticipant> participantsQueue = new PriorityQueue<>();
+        for (int i = 0; i < 10; i++) {
+            LotteryParticipant participant = new LotteryParticipant(numParticipant++, LotteryParticipant.generateRandomName(), LotteryParticipant.generateRandomSurname());
+            participantsQueue.add(participant);
+        }
+        return participantsQueue;
+    }; 
 
     public static ArrayList<Toy> compileToysListForLottery() {
         ArrayList <Toy> toysForLottery = new ArrayList<>();
@@ -32,9 +37,9 @@ public class LotteryQueue {
             Toy newToy = new Toy(num++, toyName, toyLootChance);
             toysForLottery.add(newToy);
         }
-        return toysForLottery;
-        
+        return toysForLottery; 
     }
+
     public void getLotteryPrice(){
 
     }

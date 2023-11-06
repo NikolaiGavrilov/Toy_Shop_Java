@@ -35,7 +35,7 @@ public class Toy {
 
     @Override
     public String toString() {
-        return "Игрушка [id=" + this.toyID + ", название=" + this.toyName + ", шанс выпадения=" + this.toyLootChance + "]";
+        return "Игрушка " + this.toyName + " (id: " + this.toyID + " шанс выпадения: " + this.toyLootChance + ")\n";
     }
     
 
