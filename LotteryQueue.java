@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Random;
 
+import javax.management.RuntimeErrorException;
+
 
 public class LotteryQueue {
     Random random;
@@ -40,7 +42,17 @@ public class LotteryQueue {
         return toysForLottery; 
     }
 
-    public void getLotteryPrice(){
-
+    public static void deliverLotteryPrises(PriorityQueue <LotteryParticipant> participantsQueue, ArrayList <Toy> toysForLottery){
+        if (participantsQueue.size() == toysForLottery.size()) {
+            int index;
+            for (index = 0; index < toysForLottery.size(); index++)
+                System.out.println(participantsQueue.remove() + "получает приз " + toysForLottery.get(index));
+                if (participantsQueue.size() == 0 || toysForLottery.size() == 0){
+                    System.out.println("Лотерея завершена");
+                }
+                toysForLottery.clear();
+                participantsQueue.clear();
+        }
+        else throw new RuntimeException("Несовпадение кол-ва участников и призов, лотерею придется отложить");
     }
 }

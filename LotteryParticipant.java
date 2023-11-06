@@ -58,16 +58,12 @@ public class LotteryParticipant implements Comparable{
     public String toString() {
         return "Участник лотереи " + this.name + " " + this.surname + ", id: " + this.id +"\n";
     }
-
-    public int compareTo(LotteryParticipant o) {
-        if (this.id > o.id) return 1;
-        else if (this.id < o.id) return -1;
+    @Override
+    public int compareTo(Object o) {
+        if (this.id > ((LotteryParticipant)o).getId()) return 1;
+        else if (this.id < ((LotteryParticipant)o).getId()) return -1;
         else return 0;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+   
 }
